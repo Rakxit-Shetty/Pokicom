@@ -1,12 +1,24 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import UserDetails from "./components/UserDetails";
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment } from './features/CounterSlice'
+import PokemonSee from "./components/PokemonSee";
 
 const App = () => {
+
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
   return (
     <>
-      <Navbar />
-      <UserDetails />
+       
+      {/* Hello World
+      <div>
+        <button  onClick={() => dispatch(increment())}>INC</button>
+        <i>{"        "+count+"   "}</i>
+        <button  onClick={() => dispatch(decrement())}> DEC</button>
+      </div> */}
+
+     <PokemonSee/>
     </>
   );
 };
